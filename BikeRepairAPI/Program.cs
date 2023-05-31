@@ -17,6 +17,7 @@ builder.Services.AddCors(options => options.AddPolicy(name: "BikeRepairOrigins",
     policy =>
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins("http://localhost:8080").AllowAnyMethod().AllowAnyHeader();
     }));
 var app = builder.Build();
 
