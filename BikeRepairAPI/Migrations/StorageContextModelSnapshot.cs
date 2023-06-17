@@ -37,14 +37,132 @@ namespace BikeRepairAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+                    b.Property<string>("LastName")
+                       .IsRequired()
+                       .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Street")
+                       .IsRequired()
+                       .HasColumnType("nvarchar(max)");
+                    b.Property<string>("No")
+                       .IsRequired()
+                       .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Postcode")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Location")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Phone")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("BikeType")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("BikeBrand")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ServicePackage")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ServiceUnits")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
+                    b.Property<string>("CostCeiling")
+                     .IsRequired()
+                     .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("BikeRepairRequests");
                 });
+
+            modelBuilder.Entity("BikeRepairAPI.BikeTypeRequest", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id")); 
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+
+                b.HasKey("Id");
+
+                b.ToTable("BikeTypeRequests");
+            });
+
+            modelBuilder.Entity("BikeRepairAPI.BrandRequest", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+
+                b.HasKey("Id");
+
+                b.ToTable("BrandRequests");
+            });
+
+            modelBuilder.Entity("BikeRepairAPI.ServicePackageRequest", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                   .IsRequired()
+                   .HasColumnType("nvarchar(max)");
+                b.Property<string>("Price")
+                   .IsRequired()
+                   .HasColumnType("nvarchar(max)");
+                b.Property<string>("Currency")
+                   .IsRequired()
+                   .HasColumnType("nvarchar(max)");
+                b.Property<string>("isElectoBikex")
+                   .IsRequired()
+                   .HasColumnType("bit");
+                b.HasKey("Id");
+
+                b.ToTable("ServicePackageRequests");
+            });
+            modelBuilder.Entity("BikeRepairAPI.ServiceUnitRequest", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+               
+                b.Property<string>("Value")
+                   .IsRequired()
+                   .HasColumnType("bit");
+                b.HasKey("Id");
+                b.Property<string>("isElectoBikex")
+                   .IsRequired()
+                   .HasColumnType("bit");
+                b.HasKey("Id");
+                b.ToTable("ServiceUnitRequests");
+            });
+
 #pragma warning restore 612, 618
         }
     }

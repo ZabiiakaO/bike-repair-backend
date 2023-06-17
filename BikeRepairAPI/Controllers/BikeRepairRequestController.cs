@@ -7,12 +7,12 @@ namespace BikeRepairAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BireRepairRequestController : ControllerBase
+    public class BikeRepairRequestController : ControllerBase
     {
 
         private readonly StorageContext _storageContext;
 
-        public BireRepairRequestController(StorageContext context)
+        public BikeRepairRequestController(StorageContext context)
         {
             _storageContext = context;
         } 
